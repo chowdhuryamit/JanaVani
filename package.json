@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "a social media application",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js"
   },
   "author": "amit chowdhury",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
 }
