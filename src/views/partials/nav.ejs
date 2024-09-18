@@ -1,0 +1,60 @@
+<nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <img src="https://img.icons8.com/hex/50/ffffff/code.png" alt="Logo" class="w-8 h-8">
+            <span class="text-lg font-bold">DevUI</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex items-center space-x-8">
+            <li class="group relative">
+                <a href="#" class="hover:text-gray-400 flex items-center">Home
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 ml-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </li>
+            <li class="group relative">
+                <a href="#" class="hover:text-gray-400 flex items-center">About
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 ml-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </li>
+            <li class="group relative">
+                <a href="#" class="hover:text-gray-400 flex items-center">Contact
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 ml-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Buttons -->
+        <div class="hidden md:flex space-x-4">
+            <button class="hover:text-gray-400">Sign In</button>
+            <button class="border border-gray-500 py-1 px-3 rounded hover:bg-gray-700">Log In</button>
+        </div>
+
+        <!-- Hamburger Menu -->
+        <button id="menu-toggle" class="md:hidden text-gray-400 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4">
+        <ul class="space-y-2">
+            <li><a href="#" class="block py-2 hover:text-gray-400">Home</a></li>
+            <li><a href="#" class="block py-2 hover:text-gray-400">About</a></li>
+            <li><a href="#" class="block py-2 hover:text-gray-400">Contact</a></li>
+        </ul>
+        <div class="mt-4">
+            <button class="block w-full py-2 border border-gray-500 rounded hover:bg-gray-700">sign In</button>
+            <button class="block w-full py-2 border border-gray-500 rounded hover:bg-gray-700">Log In</button>
+        </div>
+    </div>
+</nav>
