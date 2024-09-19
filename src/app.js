@@ -24,7 +24,7 @@ app.set('views',path.join(__dirname,'./views'));
 
 
 app.get('/',async(req,res)=>{
-    return res.render('signup');
+    return res.render('landingPage');
 })
 
 

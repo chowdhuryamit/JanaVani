@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SocialApp | Connect & Share</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-600">SocialApp</a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#" class="text-gray-700 hover:text-blue-600">Features</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">About</a>
+        <a href="#" class="text-gray-700 hover:text-blue-600">Contact</a>
+      </nav>
+      <div class="hidden md:flex space-x-4">
+        <a href="#" class="text-gray-700 hover:text-blue-600">Login</a>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">Sign Up</a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="menuBtn" class="text-gray-700 focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white px-4 py-2">
+      <a href="#" class="block text-gray-700 hover:text-blue-600">Features</a>
+      <a href="#" class="block text-gray-700 hover:text-blue-600">About</a>
+      <a href="#" class="block text-gray-700 hover:text-blue-600">Contact</a>
+      <div class="mt-4">
+        <a href="#" class="block text-gray-700 hover:text-blue-600">Login</a>
+        <a href="#" class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500 mt-2">Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-600 text-white">
+    <div class="container mx-auto px-4 py-20 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Connect with the World</h1>
+      <p class="text-lg md:text-xl mb-8">Join millions of users on SocialApp. Share, communicate, and explore with friends and family.</p>
+      <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded-full text-lg font-semibold hover:bg-gray-200">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose SocialApp?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <!-- Feature 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Stay Connected</h3>
+          <p class="text-gray-600">Chat with friends, join groups, and share your thoughts in real-time.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <i class="fas fa-share-alt text-4xl text-blue-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Share Moments</h3>
+          <p class="text-gray-600">Post pictures, videos, and status updates to share your life with others.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <i class="fas fa-shield-alt text-4xl text-blue-600 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-2">Privacy Protection</h3>
+          <p class="text-gray-600">Your data is always protected. Enjoy full control over your privacy settings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12">What Our Users Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="p-6 bg-gray-100 rounded-lg shadow-lg">
+          <p class="text-gray-600 mb-4">"SocialApp has made it easy to stay in touch with family and friends. It’s simple and fun to use!"</p>
+          <h3 class="font-semibold">Jane Doe</h3>
+          <span class="text-sm text-gray-500">Freelancer</span>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="p-6 bg-gray-100 rounded-lg shadow-lg">
+          <p class="text-gray-600 mb-4">"The best app to share moments and communicate with others. I absolutely love the experience!"</p>
+          <h3 class="font-semibold">John Smith</h3>
+          <span class="text-sm text-gray-500">Content Creator</span>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="p-6 bg-gray-100 rounded-lg shadow-lg">
+          <p class="text-gray-600 mb-4">"The privacy controls on SocialApp are superb. I feel safe and in control of my data."</p>
+          <h3 class="font-semibold">Alice Lee</h3>
+          <span class="text-sm text-gray-500">Entrepreneur</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-blue-600 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Join SocialApp?</h2>
+      <p class="text-lg md:text-xl mb-8">Sign up today and start connecting with the world!</p>
+      <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded-full text-lg font-semibold hover:bg-gray-200">Create Account</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <div class="flex justify-center space-x-4 mb-4">
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin fa-2x"></i></a>
+      </div>
+      <p class="text-gray-400">© 2024 SocialApp. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle mobile menu visibility
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
