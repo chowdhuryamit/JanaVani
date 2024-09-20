@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { landing,renderSignup,renderSignin,signup } from "../controllers/user.controller.js";
+import { landing,renderSignup,renderSignin,signup,signin} from "../controllers/user.controller.js";
 import { verifyJWT } from "../middlewares/auth.middlewares.js";
 import {upload} from "../middlewares/multer.middlewares.js"
 
@@ -18,5 +18,6 @@ router.post('/user/account/signup',upload.fields([
         maxCount:1
     }
 ]),signup);
+router.post('/user/account/signin',signin);
 
 export default router

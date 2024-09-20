@@ -15,8 +15,6 @@ const landing=async(req,res)=>{
      return res.render('landingPage.ejs');
    }
    else{
-    console.log(req.user);
-    
     return res.render('home.ejs');
    }
 }
@@ -102,9 +100,23 @@ const signup=async(req,res)=>{
   return res.cookie('accessToken',accessToken,options).redirect('/');
 }
 
+
+const signin=async(req,res)=>{
+    const {email,password}=req.body;
+    console.log(email);
+    console.log(password);
+    
+    if (email===""||password==="") {
+        return res.render('signin.ejs',{
+            err:'email and password is required'
+        })
+    }
+
+}
 export{
     landing,
     renderSignup,
     renderSignin,
-    signup
+    signup,
+    signin
 }
