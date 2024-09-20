@@ -12,7 +12,7 @@ const uploadOnCloudinary=async(fileLocalPath)=>{
     try {
         if (fileLocalPath) {
             const response=await cloudinary.uploader.upload(fileLocalPath,{
-                asset_folder: 'JanaVani',
+                asset_folder: 'janavani',
                 resource_type:"auto"
             })
             fs.unlinkSync(fileLocalPath);
