@@ -23,9 +23,10 @@ app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'./views'));
 
 
-app.get('/',async(req,res)=>{
-    return res.render('landingPage');
-})
+//import all routes
+import userRoutes from "./routes/user.routes.js";
+
+app.use('/',userRoutes);
 
 
 export {app};
