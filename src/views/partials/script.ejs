@@ -1,8 +1,36 @@
 <script>
-    const menuToggle = document.getElementById('menu-toggle');
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuItems = document.querySelectorAll('.mobile-menu-item');
 
-    menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+    menuBtn.addEventListener('click', () => {
+        if (mobileMenu.style.maxHeight === '0px' || !mobileMenu.style.maxHeight) {
+            mobileMenu.style.maxHeight = '500px'; // Adjust based on content height
+            menuItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('show');
+                }, index * 100); // Staggered animation for each link
+            });
+        } else {
+            mobileMenu.style.maxHeight = '0px';
+            menuItems.forEach(item => item.classList.remove('show'));
+        }
+    });
+
+    // Avatar Dropdown Toggle on Click
+    const avatarDropdownBtn = document.getElementById('avatarDropdownBtn');
+    const avatarDropdown = document.getElementById('avatarDropdown');
+
+    avatarDropdownBtn.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent event bubbling to document
+        avatarDropdown.classList.toggle('show'); // Toggle dropdown visibility
+    });
+
+    // Close the dropdown if clicked outside
+    document.addEventListener('click', (event) => {
+        if (!avatarDropdownBtn.contains(event.target) && !avatarDropdown.contains(event.target)) {
+            avatarDropdown.classList.remove('show'); // Hide dropdown
+        }
     });
 </script>

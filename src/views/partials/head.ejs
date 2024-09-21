@@ -1,3 +1,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    /* Custom underline animation for links */
+    .nav-link {
+        position: relative;
+        padding-bottom: 5px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: 0;
+        left: 50%;
+        background-color: #e26344; /* Dark color for underline */
+        transition: width 0.4s ease, left 0.4s ease;
+    }
+    .nav-link:hover::after {
+        width: 100%;
+        left: 0;
+    }
+
+    /* Dropdown Menu styling */
+    .dropdown-menu {
+        display: none; /* Hide by default */
+        position: absolute;
+        right: 0;
+        top: 50px; /* Adjust based on your navbar height */
+        background-color:rgb(24, 44, 44);
+        border: 1px solid rgba(32, 62, 230, 0.877);;
+        border-radius: 0.25rem;
+        box-shadow: 0 10px 15px rgba(37, 62, 204, 0.877);
+        width: 12rem;
+        z-index: 10;
+    }
+
+    .dropdown-menu.show {
+        display: block; /* Show when toggled */
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: #ffffff;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #335e7a;
+    }
+</style>

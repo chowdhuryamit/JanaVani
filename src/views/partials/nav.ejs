@@ -1,60 +1,45 @@
-<nav class="bg-gray-800 p-4">
+<nav class="bg-cyan-900 border-b border-gray-200 shadow-lg p-4 text-white">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
-        <div class="flex items-center space-x-2">
-            <img src="https://img.icons8.com/hex/50/ffffff/code.png" alt="Logo" class="w-8 h-8">
-            <span class="text-lg font-bold">DevUI</span>
+        <a href="#" class="text-2xl font-bold text-yellow-600 transform transition-transform duration-300 hover:scale-125 ml-10">JanaVani</a>
+
+        <!-- Menu Links (Desktop) -->
+        <div class="hidden md:flex space-x-8">
+            <a href="#" class="nav-link mr-5 hover:text-yellow-400 transform transition-transform duration-300 hover:scale-125">Home</a>
+            <a href="#" class="nav-link hover:text-yellow-400 transform transition-transform duration-300 hover:scale-125">Profile</a>
+            <a href="#" class="nav-link ml-5 hover:text-yellow-400 transform transition-transform duration-300 hover:scale-125">Settings</a>
         </div>
 
-        <!-- Desktop Menu -->
-        <ul class="hidden md:flex items-center space-x-8">
-            <li class="group relative">
-                <a href="#" class="hover:text-gray-400 flex items-center">Home
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 ml-1">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </a>
-            </li>
-            <li class="group relative">
-                <a href="#" class="hover:text-gray-400 flex items-center">About
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 ml-1">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </a>
-            </li>
-            <li class="group relative">
-                <a href="#" class="hover:text-gray-400 flex items-center">Contact
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4 ml-1">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </a>
-            </li>
-        </ul>
-
-        <!-- Buttons -->
-        <div class="hidden md:flex space-x-4">
-            <button class="hover:text-gray-400">Sign In</button>
-            <button class="border border-gray-500 py-1 px-3 rounded hover:bg-gray-700">Log In</button>
+        <!-- User Avatar with Dropdown (Desktop) -->
+        <div class="relative hidden md:flex items-center space-x-4">
+            <div id="avatarDropdownBtn" class="relative cursor-pointer">
+                <img src="<%= user.avatar %>" alt="User Avatar" class="w-10 h-10 rounded-full">
+            </div>
+            <p><%= user.fullname %></p>
+            <!-- Dropdown Menu -->
+            <div id="avatarDropdown" class="dropdown-menu absolute right-0 mt-2">
+                <a href="#">Profile</a>
+                <a href="#">Settings</a>
+                <a href="/user/account/logout">Logout</a>
+            </div>
         </div>
 
-        <!-- Hamburger Menu -->
-        <button id="menu-toggle" class="md:hidden text-gray-400 focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-        </button>
+        <!-- Hamburger Menu (Mobile) -->
+        <div class="md:hidden flex items-center">
+            <button id="menu-btn" class="block focus:outline-none">
+                <div id="avatarDropdownBtn" class="relative cursor-pointer">
+                    <img src="<%= user.avatar %>" alt="User Avatar" class="w-10 h-10 rounded-full">
+                </div>
+            </button>
+        </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden mt-4">
-        <ul class="space-y-2">
-            <li><a href="#" class="block py-2 hover:text-gray-400">Home</a></li>
-            <li><a href="#" class="block py-2 hover:text-gray-400">About</a></li>
-            <li><a href="#" class="block py-2 hover:text-gray-400">Contact</a></li>
-        </ul>
-        <div class="mt-4">
-            <button class="block w-full py-2 border border-gray-500 rounded hover:bg-gray-700">sign In</button>
-            <button class="block w-full py-2 border border-gray-500 rounded hover:bg-gray-700">Log In</button>
-        </div>
+    <div id="mobile-menu" class="md:hidden">
+        <a href="#" class="mobile-menu-item ml-6 block py-3 px-5 text-white hover:bg-gray-200 hover:text-black">Home</a>
+        <a href="#" class="mobile-menu-item ml-6 block py-3 px-5 text-white hover:bg-gray-200 hover:text-black">Dashboard</a>
+        <a href="#" class="mobile-menu-item ml-6 block py-3 px-5 text-white hover:bg-gray-200 hover:text-black">Projects</a>
+        <a href="#" class="mobile-menu-item ml-6 block py-3 px-5 text-white hover:bg-gray-200 hover:text-black">Profile</a>
+        <a href="/user/account/logout" class="mobile-menu-item ml-6 block py-3 px-5 text-white hover:bg-gray-200 hover:text-black">Logout</a>
     </div>
 </nav>

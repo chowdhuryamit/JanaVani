@@ -15,7 +15,9 @@ const landing=async(req,res)=>{
      return res.render('landingPage.ejs');
    }
    else{
-    return res.render('home.ejs');
+    return res.render('home.ejs',{
+      user:req.user
+    });
    }
 }
 
@@ -136,10 +138,21 @@ const signin=async(req,res)=>{
     return res.cookie('accessToken',accessToken,options).redirect('/');
 
 }
+
+
+const logout=async(req,res)=>{
+  const options={
+   httpOnly:true,
+   secure:true
+  }
+
+  return res.clearCookie('accessToken',options).redirect('/');
+}
 export{
     landing,
     renderSignup,
     renderSignin,
     signup,
-    signin
+    signin,
+    logout
 }
