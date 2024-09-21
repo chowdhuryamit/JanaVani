@@ -103,14 +103,37 @@ const signup=async(req,res)=>{
 
 const signin=async(req,res)=>{
     const {email,password}=req.body;
-    console.log(email);
-    console.log(password);
     
     if (email===""||password==="") {
         return res.render('signin.ejs',{
             err:'email and password is required'
         })
     }
+
+    const user=await User.findOne({email});
+
+    if (!user) {
+      return res.render('signin.ejs',{
+        err:'User does not exist'
+    })
+    }
+
+    const validPassword=await user.isPasswordCorrect(password);
+
+    if (!validPassword) {
+      return res.render('signin.ejs',{
+        err:'Invalid password'
+    })
+    }
+
+    const accessToken=await generateAccessTokenFunction(user._id);
+
+    const options={
+      httpOnly:true,
+      secure:true,
+    }
+
+    return res.cookie('accessToken',accessToken,options).redirect('/');
 
 }
 export{
