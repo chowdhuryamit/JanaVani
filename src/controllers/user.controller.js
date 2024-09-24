@@ -148,11 +148,19 @@ const logout=async(req,res)=>{
 
   return res.clearCookie('accessToken',options).redirect('/');
 }
+
+
+const profileView=async(req,res)=>{
+  return res.render('profile.ejs',{
+    user:req.user
+  });
+}
 export{
     landing,
     renderSignup,
     renderSignin,
     signup,
     signin,
-    logout
+    logout,
+    profileView
 }

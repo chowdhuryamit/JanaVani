@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-300">
+    <!-- Profile Container -->
+    <div class="max-w-4xl mx-auto my-8 p-4 bg-gray-800 shadow-lg rounded-lg relative">
+        <!-- Cover Image -->
+        <div class="relative">
+            <div class="w-full h-60 rounded-lg opacity-80 bg-cover bg-top" style="background-image: url('<%= user.coverImage %>');"></div>
+
+            <!-- Avatar -->
+            <div class="absolute -bottom-16 left-6">
+                <img src="<%= user.avatar %>" alt="Avatar" class="w-32 h-32 rounded-full border-4 border-gray-800 shadow-lg object-cover">
+            </div>
+        </div>
+
+        <!-- User Information -->
+        <div class="mt-20 px-6 flex flex-col sm:flex-row sm:justify-between sm:items-center">
+            <!-- Name and Bio -->
+            <div class="flex flex-col items-start">
+                <h1 class="text-2xl font-semibold text-white"><%= user.fullname %></h1>
+                <p class="text-gray-400"><%= user.username %></p>
+                <!-- <textarea id="bio" class="text-gray-300 mt-2 bg-gray-700 focus:outline-none focus:bg-gray-600 p-2 rounded-md w-full" readonly>
+This is a short bio about the user. Lorem ipsum dolor sit amet.
+                </textarea>
+                <button id="editBioBtn" class="mt-2 text-sm text-blue-400 hover:underline">Edit Bio</button> -->
+            </div>
+
+            <!-- Follower/Following Counts -->
+            <div class="flex mt-4 sm:mt-0">
+                <div class="text-center mr-6 hover:bg-gray-700 p-2 rounded-lg cursor-pointer">
+                    <p class="text-xl font-bold text-white">1,234</p>
+                    <p class="text-gray-400">Followers</p>
+                </div>
+                <div class="text-center hover:bg-gray-700 p-2 rounded-lg cursor-pointer">
+                    <p class="text-xl font-bold text-white">567</p>
+                    <p class="text-gray-400">Following</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Follow/Unfollow Button -->
+        <div class="px-6 mt-4">
+            <button id="followBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Follow</button>
+        </div>
+
+        <!-- User Posts Section -->
+        <div class="mt-8 px-6">
+            <h2 class="text-xl font-semibold text-white mb-4">Posts</h2>
+
+            <!-- Post #1 -->
+            <div class="bg-gray-700 p-4 rounded-lg mb-4 shadow-md cursor-pointer post" data-title="Post Title 1" data-content="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+                <h3 class="font-semibold text-white">Post Title 1</h3>
+                <p class="text-gray-300 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+
+            <!-- Post #2 -->
+            <div class="bg-gray-700 p-4 rounded-lg mb-4 shadow-md cursor-pointer post" data-title="Post Title 2" data-content="Quisque volutpat lacus quis sapien bibendum, id viverra lectus dapibus.">
+                <h3 class="font-semibold text-white">Post Title 2</h3>
+                <p class="text-gray-300 mt-2">Quisque volutpat lacus quis sapien bibendum, id viverra lectus dapibus.</p>
+            </div>
+
+            <!-- Post #3 -->
+            <div class="bg-gray-700 p-4 rounded-lg mb-4 shadow-md cursor-pointer post" data-title="Post Title 3" data-content="Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.">
+                <h3 class="font-semibold text-white">Post Title 3</h3>
+                <p class="text-gray-300 mt-2">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Post Details -->
+    <div id="postModal" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex items-center justify-center hidden">
+        <div class="bg-gray-800 rounded-lg p-6 w-11/12 sm:w-1/2">
+            <h3 id="postModalTitle" class="text-xl font-semibold text-white"></h3>
+            <p id="postModalContent" class="text-gray-300 mt-4"></p>
+            <button id="closeModalBtn" class="mt-4 text-sm text-red-400 hover:underline">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Follow/Unfollow Button
+        const followBtn = document.getElementById('followBtn');
+        let isFollowing = false;
+
+        followBtn.addEventListener('click', function () {
+            isFollowing = !isFollowing;
+            followBtn.textContent = isFollowing ? 'Unfollow' : 'Follow';
+            followBtn.classList.toggle('bg-blue-600');
+            followBtn.classList.toggle('bg-red-600');
+            followBtn.classList.toggle('hover:bg-blue-700');
+            followBtn.classList.toggle('hover:bg-red-700');
+        });
+
+        // Bio Editing
+        const bio = document.getElementById('bio');
+        const editBioBtn = document.getElementById('editBioBtn');
+
+        editBioBtn.addEventListener('click', function () {
+            if (bio.readOnly) {
+                bio.readOnly = false;
+                bio.focus();
+                editBioBtn.textContent = 'Save Bio';
+            } else {
+                bio.readOnly = true;
+                editBioBtn.textContent = 'Edit Bio';
+            }
+        });
+
+        // Post Modal
+        const posts = document.querySelectorAll('.post');
+        const postModal = document.getElementById('postModal');
+        const postModalTitle = document.getElementById('postModalTitle');
+        const postModalContent = document.getElementById('postModalContent');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        posts.forEach(post => {
+            post.addEventListener('click', function () {
+                postModalTitle.textContent = post.getAttribute('data-title');
+                postModalContent.textContent = post.getAttribute('data-content');
+                postModal.classList.remove('hidden');
+            });
+        });
+
+        closeModalBtn.addEventListener('click', function () {
+            postModal.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
